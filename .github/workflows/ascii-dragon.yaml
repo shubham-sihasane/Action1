@@ -15,6 +15,6 @@ jobs:
       - name: File Checks
         run: grep -i "winter" dragon.txt
       - name: Read File
-        run: cat dragon.md
+        run: cat dragon.txt
       - name: List Files
         run: ls -ltra
