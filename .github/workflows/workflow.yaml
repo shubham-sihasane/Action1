@@ -1,0 +1,19 @@
+name: First Workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  welcome-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+      - name: Greetings
+        run: |
+          echo "Hello World!"
+          echo "Welcome to the world of Actions"
+      - name: List Files
+        run: ls
+      - name: Read Files
+        run: cat README.md
