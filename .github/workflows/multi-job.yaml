@@ -1,0 +1,20 @@
+name: Multiple Jobs
+on:
+  push:
+    branches: [main]
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Job
+        run: echo "Building..."
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Job
+        run: echo "Testing..."
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Job
+        run: echo "Deploying..."
