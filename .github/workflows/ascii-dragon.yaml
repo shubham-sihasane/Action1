@@ -1,0 +1,20 @@
+name: ASCII Generator
+on:
+  push:
+    branches: [main]
+jobs:
+  ascii-job:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+      - name: Install Cowsay Program
+        run: sudo apt install cowsay -y
+      - name: Execute Cowsay
+        run: cowsay -f dragon "Winter is Coming..." >> dragon.txt
+      - name: File Checks
+        run: grep -i "winter" dragon.txt
+      - name: Read File
+        run: cat README.md
+      - name: List Files
+        run: ls -ltra
