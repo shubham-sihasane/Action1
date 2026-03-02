@@ -1,8 +1,8 @@
 name: Variables & Secrets
 on: 
   workflow_dispatch:
-  schedule:
-    - cron: "* * * * *"
+  # schedule:
+  #   - cron: "* * * * *"
 env:
   DOCKER_REGISTRY: docker.io
   DOCKER_IMAGE: actions-nginx
@@ -19,6 +19,9 @@ jobs:
         
   Deploy:
     needs: [Docker]
+    concurrency:
+      group: production-deploy
+      cancel-in-progress: true
     env:
       DOCKER_REGISTRY: docker.io
       DOCKER_USERNAME: sihasaneshubham
