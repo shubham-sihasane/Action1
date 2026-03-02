@@ -13,8 +13,8 @@ jobs:
         os: [ubuntu-latest, ubuntu-24.04, windows-latest] # Can add windows and mac
         images: [hello-world, alpine]
         exclude: 
-          - images: [alpine]
-            os: [windows-latest]
+          - os: [windows-latest]
+            images: [alpine, nginx]
         include:
           - images: [nginx]
             os: [ubuntu-latest]
