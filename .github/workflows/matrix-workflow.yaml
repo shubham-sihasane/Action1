@@ -14,10 +14,10 @@ jobs:
         images: [hello-world, alpine]
         exclude: 
           - os: [windows-latest]
-            images: [hello-world, alpine, nginx]
-        include:
-          - images: [nginx]
-            os: [ubuntu-latest]
+            images: [hello-world, alpine]
+        # include:
+        #   - images: [nginx]
+        #     os: [ubuntu-latest]
     runs-on: ${{matrix.os}}
     steps:
       - name: Docker Info
