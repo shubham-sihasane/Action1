@@ -7,9 +7,17 @@ on:
 jobs:
   deploy-os:
     strategy:
+      fail-fast: true # false
+      max-parallel: 2
       matrix:
-        os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-        images: [hello-world, nginx]
+        os: [ubuntu-latest, ubuntu-24.04, windows-latest] # Can add windows and mac
+        images: [hello-world, alpine]
+        exclude: 
+          - images: [alpine]
+            os: [windows-latest]
+        include:
+          - images: [nginx]
+            os: [ubuntu-latest]
     runs-on: ${{matrix.os}}
     steps:
       - name: Docker Info
