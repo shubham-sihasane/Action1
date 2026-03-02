@@ -1,0 +1,22 @@
+name: Actions Context
+on: push
+jobs:
+  context-dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github)}}
+        run: echo $GITHUB_CONTEXT
+      - name: Job Context
+        env:
+          JOB_CONTEXT: ${{ toJson(job)}}
+        run: echo $JOB_CONTEXT
+      - name: Steps Context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps)}}
+        run: echo $STEPS_CONTEXT
+      - name: Runner Context
+        env: 
+          RUNNER_CONTEXT: ${{ toJson(runner)}}
+        run: echo $RUNNER_CONTEXT
