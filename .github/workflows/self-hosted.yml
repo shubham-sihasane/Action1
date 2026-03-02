@@ -1,0 +1,10 @@
+name: Self-hosted-Runner
+on: workflow_dispatch
+jobs:
+  self-job:
+    runs-on: self-hosted
+    steps:
+      - name: Greetings
+        run: |
+          echo "Hello World!"
+          echo "Welcome to the world of DevOps!"
